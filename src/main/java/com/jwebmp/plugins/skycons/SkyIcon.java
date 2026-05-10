@@ -1,8 +1,6 @@
 package com.jwebmp.plugins.skycons;
 
-import static com.guicedee.services.jsonrepresentation.json.StaticStrings.CHAR_DASH;
-import static com.guicedee.services.jsonrepresentation.json.StaticStrings.CHAR_UNDERSCORE;
-import static com.jwebmp.core.utilities.StaticStrings.*;
+import static com.guicedee.modules.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * The actual icon to display

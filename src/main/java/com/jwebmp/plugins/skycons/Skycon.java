@@ -3,7 +3,6 @@ package com.jwebmp.plugins.skycons;
 import com.jwebmp.core.base.html.Canvas;
 import com.jwebmp.plugins.skycons.configurator.SkyconStartFeature;
 
-import jakarta.validation.constraints.NotNull;
 
 public class Skycon<J extends Skycon<J>>
 		extends Canvas<J>
@@ -12,7 +11,7 @@ public class Skycon<J extends Skycon<J>>
 	private SkyconFeature feature;
 	private SkyconStartFeature startFeature;
 
-	public Skycon(@NotNull String id, int widthHeight, SkyIcon skycon)
+	public Skycon(String id, int widthHeight, SkyIcon skycon)
 	{
 		setID(id);
 		addAttribute("width", Integer.toString(widthHeight));
@@ -28,7 +27,6 @@ public class Skycon<J extends Skycon<J>>
 	}
 
 	@SuppressWarnings("unchecked")
-	@NotNull
 	public J setIcon(SkyIcon icon)
 	{
 		this.icon = icon;
@@ -46,10 +44,11 @@ public class Skycon<J extends Skycon<J>>
 		return feature;
 	}
 	
-	public Skycon<J> setFeature(SkyconFeature feature)
+	@SuppressWarnings("unchecked")
+	public J setFeature(SkyconFeature feature)
 	{
 		this.feature = feature;
-		return this;
+		return (J) this;
 	}
 	
 	public SkyconStartFeature getStartFeature()
@@ -57,9 +56,10 @@ public class Skycon<J extends Skycon<J>>
 		return startFeature;
 	}
 	
-	public Skycon<J> setStartFeature(SkyconStartFeature startFeature)
+	@SuppressWarnings("unchecked")
+	public J setStartFeature(SkyconStartFeature startFeature)
 	{
 		this.startFeature = startFeature;
-		return this;
+		return (J) this;
 	}
 }

@@ -1,31 +1,41 @@
 package com.jwebmp.plugins.skycons.configurator;
 
-import com.jwebmp.core.Page;
-import com.jwebmp.core.base.references.JavascriptReference;
+import com.jwebmp.core.base.angular.client.annotations.angularconfig.NgScript;
+import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
+import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
+import com.jwebmp.core.services.IPage;
 import com.jwebmp.core.services.IPageConfigurator;
 
-import jakarta.validation.constraints.NotNull;
-
 /**
- * Class SkyconPageConfigurator
- * <p>
- * Implementation for Angular-Skycons
- *
- * @author GedMarc
- * @since 2018/08/10
+ * Page configurator for Skycons — animated weather icons using HTML5 Canvas.
  */
+@PluginInformation(pluginName = "Skycons",
+		pluginUniqueName = "skycons",
+		pluginDescription = "Skycons — animated weather glyphs rendered on HTML5 Canvas elements.",
+		pluginVersion = "1.0.0",
+		pluginDependancyUniqueIDs = "",
+		pluginCategories = "icons, weather, canvas",
+		pluginSubtitle = "Animated weather icons for Canvas",
+		pluginGitUrl = "https://github.com/JWebMP/JWebMP",
+		pluginSourceUrl = "https://darkskyapp.github.io/skycons/",
+		pluginWikiUrl = "https://github.com/JWebMP/JWebMP/wiki",
+		pluginOriginalHomepage = "https://darkskyapp.github.io/skycons/",
+		pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins/skycons",
+		pluginIconUrl = "",
+		pluginIconImageUrl = "",
+		pluginLastUpdatedDate = "2026/05/09",
+		pluginGroupId = "com.jwebmp.plugins",
+		pluginArtifactId = "skycons",
+		pluginModuleName = "com.jwebmp.plugins.skycons",
+		pluginStatus = PluginStatus.Released
+)
+@TsDependency(value = "skycons", version = "^1.0.0")
+@NgScript("node_modules/skycons/skycons.js")
 @SuppressWarnings("unused")
 public class SkyconPageConfigurator
 		implements IPageConfigurator<SkyconPageConfigurator>
 {
-	/**
-	 * Field SkyconJavascriptReference
-	 */
-	private static final JavascriptReference SkyconJavascriptReference = new JavascriptReference("SkyconBase", 2.02, "bower_components/skycons/skycons.min.js");
-	/**
-	 * If this configurator is enabled
-	 */
-	private static boolean enabled = true;
 	/**
 	 * Field colour
 	 */
@@ -34,31 +44,6 @@ public class SkyconPageConfigurator
 	public SkyconPageConfigurator()
 	{
 		//No Config Required
-	}
-
-	/**
-	 * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
-	 * <p>
-	 * If this configurator is enabled
-	 *
-	 * @return the enabled (type boolean) of this AngularAnimatedChangePageConfigurator object.
-	 */
-	public static boolean isEnabled()
-	{
-		return SkyconPageConfigurator.enabled;
-	}
-
-	/**
-	 * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
-	 * <p>
-	 * If this configurator is enabled
-	 *
-	 * @param mustEnable
-	 * 		the enabled of this AngularAnimatedChangePageConfigurator object.
-	 */
-	public static void setEnabled(boolean mustEnable)
-	{
-		SkyconPageConfigurator.enabled = mustEnable;
 	}
 
 	/**
@@ -82,40 +67,15 @@ public class SkyconPageConfigurator
 		SkyconPageConfigurator.colour = colour;
 	}
 
-	/**
-	 * Method getSkyconJavascriptReference returns the skyconJavascriptReference of this SkyconPageConfigurator object.
-	 *
-	 * @return the skyconJavascriptReference (type JavascriptReference) of this SkyconPageConfigurator object.
-	 */
-	public static JavascriptReference getSkyconJavascriptReference()
-	{
-		return SkyconPageConfigurator.SkyconJavascriptReference;
-	}
-
-	/**
-	 * Configures the given page for the parameters
-	 *
-	 * @param page
-	 * 		The page incoming
-	 *
-	 * @return The original page incoming or a new page, never null
-	 */
 	@Override
-	public @NotNull Page<?> configure(Page<?> page)
+	public IPage<?> configure(IPage<?> page)
 	{
-		if (!page.isConfigured() && enabled())
-		{
-			page.addJavaScriptReference(SkyconPageConfigurator.SkyconJavascriptReference);
-			page.addVariable("skycons");
-			page.addFeature(new SkyconSetupFeature());
-		}
-
 		return page;
 	}
 
 	@Override
 	public boolean enabled()
 	{
-		return SkyconPageConfigurator.enabled;
+		return true;
 	}
 }

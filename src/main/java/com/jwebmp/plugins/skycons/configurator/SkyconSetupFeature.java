@@ -2,7 +2,6 @@ package com.jwebmp.plugins.skycons.configurator;
 
 import com.jwebmp.core.Feature;
 
-import jakarta.validation.constraints.NotNull;
 
 public class SkyconSetupFeature
 		extends Feature
@@ -14,7 +13,7 @@ public class SkyconSetupFeature
 	}
 
 	@Override
-	public @NotNull Integer getSortOrder()
+	public Integer getSortOrder()
 	{
 		return Integer.MIN_VALUE;
 	}

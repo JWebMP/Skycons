@@ -2,7 +2,6 @@ package com.jwebmp.plugins.skycons;
 
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
-import jakarta.validation.constraints.NotNull;
 
 /**
  * The options available for the skycons
@@ -38,7 +37,6 @@ public class SkyconOptions<J extends SkyconOptions<J>>
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@NotNull
 	public J setColour(String colour)
 	{
 		this.colour = colour;
@@ -63,7 +61,6 @@ public class SkyconOptions<J extends SkyconOptions<J>>
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@NotNull
 	public J setResizeClear(Boolean resizeClear)
 	{
 		this.resizeClear = resizeClear;
