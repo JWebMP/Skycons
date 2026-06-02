@@ -23,7 +23,7 @@ Built on [Skycons](https://darkskyapp.github.io/skycons/) · [Angular 21](https:
 <dependency>
   <groupId>com.jwebmp.plugins</groupId>
   <artifactId>skycons</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>2.0.3-SNAPSHOT</version>
 </dependency>
 ```
 
