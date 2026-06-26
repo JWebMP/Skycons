@@ -13,6 +13,6 @@ module com.jwebmp.plugins.skycons {
 	provides com.guicedee.client.services.config.IGuiceScanModuleExclusions with com.jwebmp.plugins.skycons.implementations.SkyconsExclusionsModule;
 	provides com.guicedee.client.services.config.IGuiceScanModuleInclusions with SkyconInclusionModule;
 
-	opens com.jwebmp.plugins.skycons.configurator to com.fasterxml.jackson.databind, com.jwebmp.core;
-	opens com.jwebmp.plugins.skycons to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core;
+	opens com.jwebmp.plugins.skycons.configurator to tools.jackson.databind, com.jwebmp.core;
+	opens com.jwebmp.plugins.skycons to tools.jackson.databind, com.google.guice, com.jwebmp.core;
 }
