@@ -111,7 +111,6 @@ src/main/java/com/jwebmp/plugins/skycons/
 │   ├── SkyconSetupFeature.java        # JS — creates Skycons instance
 │   └── SkyconStartFeature.java        # JS — starts animation playback
 └── implementations/
-    ├── SkyconInclusionModule.java
     └── SkyconsExclusionsModule.java
 ```
 
